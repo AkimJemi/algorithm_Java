@@ -1,39 +1,34 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Longest_Common_Prefix {
     public static void main(String[] args) {
-        System.out.println(new Solution().longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+        System.out.println(new Solution().longestCommonPrefix(new String[]{"ab", "a"}));
     }
 }
 
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         String prefix = "";
-        String targetStr = "";
-        char[] targetCharArray = null;
-        for (String str : strs) {
-            char[] prefixArray = new char[str.length()];
-            if (targetStr.length() == 0) {
-                targetCharArray = str.toCharArray();
-                System.out.println("continue;");
+        for (int i = 0; i < strs.length; i++) {
+            if (i == 0) {
+                prefix = strs[i];
                 continue;
             }
-            int i = 0;
-            for (Character cha : str.toCharArray()) {
-                System.out.println(cha.equals(targetCharArray[i]));
-                if (cha.equals(targetCharArray[i])) {
-                    targetStr += String.valueOf(cha);
+            if (strs[i].length() == 0) {
+                return "";
+            }
+            char[] prefixCharArray = prefix.toCharArray();
+            String strMiddle = "";
+            for (int j = 0; j < prefixCharArray.length; j++) {
+                if (String.valueOf(prefixCharArray[j]).equals(strs[i].substring(j, j + 1))) {
+                    strMiddle += strs[i].substring(j, j + 1);
                 } else {
+                    break;
                 }
-                i++;
+                if (j + 1 == strs[i].length()) {
+                    break;
+                }
             }
-            if (prefix.length() == 0) {
-                System.out.println("break;");
-                break;
-            }
+            prefix = strMiddle;
         }
-        return "";
+        return prefix;
     }
 }
