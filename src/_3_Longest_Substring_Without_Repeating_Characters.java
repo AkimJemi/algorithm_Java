@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Longest_Substring_Without_Repeating_Characters {
+public class _3_Longest_Substring_Without_Repeating_Characters {
     public static void main(String[] args) {
         System.out.println(new Solution3().lengthOfLongestSubstring("pwwkew"));
     }

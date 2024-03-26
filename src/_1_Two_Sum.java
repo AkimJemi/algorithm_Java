@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Two_Sum {
+public class _1_Two_Sum {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(new Solution1().twoSum(new int[]{3, 2, 4}, 6)));
 

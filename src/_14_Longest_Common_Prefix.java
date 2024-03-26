@@ -1,10 +1,9 @@
-public class Longest_Common_Prefix {
+public class _14_Longest_Common_Prefix {
     public static void main(String[] args) {
-        System.out.println(new Solution().longestCommonPrefix(new String[]{"ab", "a"}));
+        System.out.println(new Solution14().longestCommonPrefix(new String[]{"ab", "a"}));
     }
 }
-
-class Solution {
+class Solution14 {
     public String longestCommonPrefix(String[] strs) {
         String prefix = "";
         for (int i = 0; i < strs.length; i++) {
