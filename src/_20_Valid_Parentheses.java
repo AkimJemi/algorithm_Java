@@ -8,6 +8,7 @@ public class _20_Valid_Parentheses {
 }
 
 class Solution20 {
+
     public boolean isValid(String s) {
         String[] strArray = s.split("");
         Map<String, String> mapOpen = new HashMap<>();
