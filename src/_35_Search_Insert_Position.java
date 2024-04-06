@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class _35_Search_Insert_Position {
     public static void main(String[] args) {
         System.out.println(new Solution35().searchInsert(new int[]{1, 3}, 2));
