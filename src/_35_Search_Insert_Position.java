@@ -18,7 +18,6 @@ class Solution35 {
             return 0;
         }
         for (int i = 0; i < numArrayLength; i++) {
-            System.out.println(i);
             if (nums[i] == target) {
                 return i;
             }
