@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -45,12 +44,10 @@ class Solution36 {
                     rowBox++;
                 }
             }
-            for (int column = 0; column < 9; column++) {
-                int columIndex = column;
-                List<Character> charColumList = new ArrayList<>(charList.stream().map(a -> a.get(columIndex)).filter(ch -> Character.isDigit(ch)).collect(Collectors.toList()));
-                if (charColumList.stream().distinct().count() != charColumList.size()) {
-                    return false;
-                }
+            int columIndex = row;
+            List<Character> charColumList = new ArrayList<>(charList.stream().map(a -> a.get(columIndex)).filter(ch -> Character.isDigit(ch)).collect(Collectors.toList()));
+            if (charColumList.stream().distinct().count() != charColumList.size()) {
+                return false;
             }
         }
         return true;
