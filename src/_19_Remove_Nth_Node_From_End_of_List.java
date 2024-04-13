@@ -9,13 +9,6 @@ public class _19_Remove_Nth_Node_From_End_of_List {
                     return b;
                 }
         ).get(), 2);
-        int i = 0;
-        while (true) {
-            if (node.next == null) {
-                break;
-            }
-            node = node.next;
-        }
     }
 }
 
