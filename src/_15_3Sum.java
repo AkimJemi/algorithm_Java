@@ -1,12 +1,9 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class _15_3Sum {
     public static void main(String[] args) {
         System.out.println(new Solution15().threeSum(new int[]{1,-1,-1,0}));
-
     }
-
 }
 
 class Solution15 {
