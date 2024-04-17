@@ -1,4 +1,4 @@
-import java.util.*;
+package LeetCode;
 
 public class _11_Container_With_Most_Water {
     public static void main(String[] args) {

@@ -1,3 +1,5 @@
+package LeetCode;
+
 public class _5_Longest_Palindromic_Substring {
     public static void main(String[] args) {
         System.out.println(new Solution5().longestPalindrome("aacabdkacaa"));

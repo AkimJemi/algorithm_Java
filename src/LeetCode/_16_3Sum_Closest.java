@@ -1,5 +1,6 @@
+package LeetCode;
+
 import java.util.Arrays;
-import java.util.Collections;
 
 public class _16_3Sum_Closest {
     public static void main(String[] args) {

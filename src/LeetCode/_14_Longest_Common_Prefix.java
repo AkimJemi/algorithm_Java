@@ -1,3 +1,5 @@
+package LeetCode;
+
 public class _14_Longest_Common_Prefix {
     public static void main(String[] args) {
         System.out.println(new Solution14().longestCommonPrefix(new String[]{"ab", "a"}));

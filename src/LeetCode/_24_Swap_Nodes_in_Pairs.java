@@ -1,3 +1,5 @@
+package LeetCode;
+
 import java.util.*;
 
 public class _24_Swap_Nodes_in_Pairs {

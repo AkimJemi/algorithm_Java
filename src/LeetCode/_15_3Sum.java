@@ -1,3 +1,5 @@
+package LeetCode;
+
 import java.util.*;
 
 public class _15_3Sum {

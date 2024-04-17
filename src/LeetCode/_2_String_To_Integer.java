@@ -1,3 +1,5 @@
+package LeetCode;
+
 public class _2_String_To_Integer {
     public static void main(String[] args) {
         System.out.println(new Solution2().myAtoi("+-12"));
