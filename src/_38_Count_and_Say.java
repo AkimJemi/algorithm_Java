@@ -1,6 +1,6 @@
 public class _38_Count_and_Say {
     public static void main(String[] args) {
-        System.out.println(new Solution38().countAndSay(4));
+        System.out.println(new Solution38().countAndSay(6));
 
     }
 }
@@ -11,18 +11,23 @@ class Solution38 {
             return "1";
         }
         String nums = "1";
-        for (int i = 1; i <= n; i++) {
-            if (i == 1) {
-                continue;
-            }
+        for (int i = 2; i <= n; i++) {
             int count = 0;
-            String str = String.valueOf(nums.charAt(0));
-            for (String num : nums.split("")) {
-                if (num.equals(str)) {
-                    count++;
-                } else {
-                    str = num;
-                    nums += count + str;
+            String[] strArray = nums.split("");
+            nums = "";
+            for (int j = 0; j < strArray.length; j++) {
+                count++;
+                if (j < strArray.length - 1) {
+                    if (!strArray[j].equals(strArray[j + 1])) {
+                        nums += count + strArray[j];
+                        count = 0;
+                        continue;
+                    }
+                }
+                if (j == strArray.length - 1) {
+                    nums += count + strArray[j];
+                    count = 0;
+                    continue;
                 }
             }
         }
