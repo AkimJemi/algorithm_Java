@@ -16,7 +16,8 @@ public class _76_Minimum_Window_Substring {
 //        System.out.println(new Solution76().minWindow("aaaaaaaaaaaabbbbbcdd", "abcdd"));
 //        System.out.println(new Solution76().minWindow("a", "b"));
 //        System.out.println(new Solution76().minWindow("caae", "cae"));
-        System.out.println(new Solution76().minWindow("vlssjudabstgkzxzcpglfgogiwkowyvulnmujpwkjrqvsnwvdcikjwqtsdhrdclorxkaoikazbvuqspvwxhhvybndieglrucqgfhophpsejlwagtzoauobkrmqzzivdybifpyoestqdrqkmqapkoquhenidvdhvepdvprbimrneizsyzhkpyhyeugirjropgrmyloixfvdnvwnwdamdhmidtsuejiwrcipnwzmevqrsohqrhexqrhtkzpqkzobbxtqvsdzpvtjjcacjezbxiwhjlatmoxonqejkhkcednnfnqqurrrcnbladfntcdhuhserciviwlnldgfwxzynakpfpcythfnrxtkcchkaszlvftsfsqsuajbrozkvhzmgtwixesxwukuzdoexgytjiuawuntbmghhcseimbhgobgrrmrxnkgxfhvbwoeiulqzdwhsaoyorghityggjmdqvyttoxclkukqqtiqkggbnomimuqxitpgtizjfduqxggqaoimwppjdbrrvjpgeemxpljupdmokseminyfenqjrkaotruyygxnsgjjmwxwqckzrigxxygoigdcaxcyeznyiwhuueslicmbmuyjseybnbfnahleiaeqwlmrseeaiqcukaecfefsfmhhtumeuqwqejjwpnyyfaupdyukebejoltjffnzxmrdvdzksykyafpdflnknrvbeomlvckvoeyjjyvbyizypreucrgplcsrsfdohpjvvh", "gehdgflhgaykx"));
+        System.out.println(new Solution76().minWindow("vlssjudabstgkzxzcpglfgogiwkowyvulnmujpwkjrqvsnwvdcikjwqtsdhrdclorxkaoikazbvuqspvwxhhvybndieglrucqgfhophpsejlwagtzoauobkrmqzzivdybifpyoestqdrqkmqapkoquhenidvdhvepdvprbimrneizsyzhkpyhyeugirjropgrmyloixfvdnvwnwdamdhmidtsuejiwrcipnwzmevqrsohqrhexqrhtkzpqkzobbxtqvsdzpvtjjcacjezbxiwhjlatmoxonqejkhkcednnfnqqurrrcnbladfntcdhuhserciviwlnldgfwxzynakpfpcythfnrxtkcchkaszlvftsfsqsuajbrozkvhzmgtwixesxwukuzdoexgytjiuawuntbmghhcseimbhgobgrrmrxnkgxfhvbwoeiulqzdwhsaoyorghityggjmdqvyttoxclkukqqtiqkggbnomimuqxitpgtizjfduqxggqaoimwppjdbrrvjpgeemxpljupdmokseminyfenqjrkaotruyygxnsgjjmwxwqckzrigxxygoigdcaxcyeznyiwhuueslicmbmuyjseyb", "gehdgflhgaykx"));
+        System.out.println(new Solution76().minWindow("tfsxfpbgrvlgngmrtgotjumbaxosseklkckrrlzljnrytfpolgjxcvycvounteafgkyaxylgleeglwuycfvecvgxmbmfhmmoykoykbgxhndsjzqneorjlzgxctckhqaibqgnrolybqskskxyyqhmqojsjocqeeyhugvlvglwwfjqqipqzwcrmmjvcoogsmopvjaqroontzglivcjtgagslbwbpdwetlbcnrtdhizhokploafvanpnqmpirnmkynmnghrnrqwicltrlaonndbersmihyshnguvplkhdhpgukxillvyqycksoszongdvbyloluusjamvzugmsfesjolahkqwturuuekhyezjgoffilrcswvekgetsurlqjhnpuuoywxfkcmuqexicumocsiupbihkrwclrqkpnrzsdvijuslohaqzknqlxyyouaansmehddzibjuvcfkjhcktrdhobhdxjfnbrriwxkgytatvifgpktlbwsqxzvwiajltdtradxazytugbdxlwimscerbbnldzwwcspexnewnzrvausnsdckfibhkquprrmvjdzgqfdffwahsvxkyzwdhzmtpjjhaxclaettjyyqwbaqwxauyyzfxobpxkyzjakjgfesediaekrchtwhuxnrlqikcgjljvwpbbhfgshmcaomwmtqjijxysjaatnjokzrlgwragddirrefkwqvintazwasjkitlaetyxueazptqtycsrxaetcfpcxaogwbicvgarncqcwixwmpnkpufrzwwzwmhsopvlxxckzumxcmwoblatffmhbiiaxpulgrydoaqquenyqjouvpncwzlaktahkwuqouweumuqqiohtcbotqtqpesbyukiqgbgaxlujfkzpagjfjzyzsqrxksxedfvjidkfogowtqltyuaiubjoraletiiyqfhyjtgzcuvvkhqjdrtzucoldbrymaweffcqbkqdflyruqcyjvzd", "ynrdribdizhqelgfwwid"));
     }
 }
 
@@ -35,6 +36,7 @@ class Solution76 {
         return minResult != null ? minResult : "";
     }
 
+    // 240
     private String minWindowMethod(String s, String t, int strLength) {
         List<String> targetList = Arrays.stream(t.split("")).collect(Collectors.toList());
         String[] strArray = s.split("");
@@ -56,17 +58,92 @@ class Solution76 {
             List<String> tmpList = new ArrayList<>(targetList);
             for (Map.Entry<Integer, String> entry : subEntryList) {
                 tmpList.remove(entry.getValue());
-            }
-            if (tmpList.isEmpty()) {
-                start = subEntryList.get(0).getKey();
-                end = subEntryList.get(strLength - 1).getKey() + 1;
-                if (minimun == null || minimun > end - start) {
-                    minimumStart = start;
-                    minimumEnd = end;
-                    minimun = end - start;
+                if (tmpList.isEmpty()) {
+                    start = subEntryList.get(0).getKey();
+                    end = subEntryList.get(strLength - 1).getKey() + 1;
+                    if (minimun == null || minimun > end - start) {
+                        minimumStart = start;
+                        minimumEnd = end;
+                        minimun = end - start;
+                    }
+                    break;
                 }
             }
         }
         return s.substring(minimumStart, minimumEnd);
     }
+    // 240
+//    private String minWindowMethod(String s, String t, int strLength) {
+//        List<String> targetList = Arrays.stream(t.split("")).collect(Collectors.toList());
+//        String[] strArray = s.split("");
+//        List<Map.Entry<Integer, String>> entryList = IntStream
+//                .range(0, strArray.length)
+//                .boxed()
+//                .collect(Collectors.toMap(a -> a, b -> strArray[b]))
+//                .entrySet()
+//                .stream()
+//                .filter(a -> targetList.contains(a.getValue()))
+//                .collect(Collectors.toList());
+//        int start = 0;
+//        int end = 0;
+//        int minimumStart = 0;
+//        int minimumEnd = 0;
+//        Integer minimun = null;
+//        for (int i = 0; i <= entryList.size() - strLength; i++) {
+//            List<Map.Entry<Integer, String>> subEntryList = entryList.subList(i, i + strLength);
+//            List<String> tmpList = new ArrayList<>(targetList);
+//            for (Map.Entry<Integer, String> entry : subEntryList) {
+//                tmpList.remove(entry.getValue());
+//                if (tmpList.isEmpty()) {
+//                    start = subEntryList.get(0).getKey();
+//                    end = subEntryList.get(strLength - 1).getKey() + 1;
+//                    if (minimun == null || minimun > end - start) {
+//                        minimumStart = start;
+//                        minimumEnd = end;
+//                        minimun = end - start;
+//                    }
+//                    break;
+//                }
+//            }
+//        }
+//        return s.substring(minimumStart, minimumEnd);
+//    }
+//  234  private String minWindowMethod(String s, String t, int strLength) {
+//        List<String> targetList = Arrays.stream(t.split("")).collect(Collectors.toList());
+//        String[] strArray = s.split("");
+//        List<Map.Entry<Integer, String>> entryList = IntStream
+//                .range(0, strArray.length)
+//                .boxed()
+//                .collect(Collectors.toMap(a -> a, b -> strArray[b]))
+//                .entrySet()
+//                .stream()
+//                .filter(a -> targetList.contains(a.getValue()))
+//                .collect(Collectors.toList());
+//        int start = 0;
+//        int end = 0;
+//        int minimumStart = 0;
+//        int minimumEnd = 0;
+//        Integer minimun = null;
+//        for (int i = 0; i <= entryList.size() - strLength; i++) {
+//            List<Map.Entry<Integer, String>> subEntryList = entryList.subList(i, i + strLength);
+//            List<String> tmpList = new ArrayList<>(targetList);
+//            List<String> subList = subEntryList.stream().map(Map.Entry::getValue).collect(Collectors.toList());
+//            if (!tmpList.retainAll(subList)) {
+//                for (Map.Entry<Integer, String> entry : subEntryList) {
+//                    tmpList.remove(entry.getValue());
+//                    if (tmpList.isEmpty()) {
+//                        start = subEntryList.get(0).getKey();
+//                        end = subEntryList.get(strLength - 1).getKey() + 1;
+//                        if (minimun == null || minimun > end - start) {
+//                            minimumStart = start;
+//                            minimumEnd = end;
+//                            minimun = end - start;
+//                        }
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        return s.substring(minimumStart, minimumEnd);
+//    }
 }
