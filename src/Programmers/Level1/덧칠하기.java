@@ -36,3 +36,25 @@ class Solution_덧칠하기 {
         return count;
     }
 }
+// Someone else's solution
+//public int solution(int n, int m, int[] section) {
+//    int roller = section[0];
+//    int cnt = 1;
+//    for(int i = 1; i < section.length; i++) {
+//        if(roller + m - 1 < section[i]) {
+//            cnt++;
+//            roller = section[i];
+//        }
+//    }
+//    return cnt;
+//}
+//public int solution(int n, int m, int[] section) {
+//    int maxPainted = 0, cntPaint = 0;
+//    for (int point : section) {
+//        if (maxPainted <= point) {
+//            maxPainted = point + m;
+//            cntPaint++;
+//        }
+//    }
+//    return cntPaint;
+//}
