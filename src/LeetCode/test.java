@@ -6,7 +6,19 @@ import java.util.List;
 public class test {
     public static void main(String[] args) {
 //        void001();
-        void002();
+//        void002();
+        int x = 10;
+        int y = 15;
+        void003(x, y);
+        System.out.println(x);
+        System.out.println(y);
+    }
+
+    private static void void003(int x, int y) {
+        x += 5;
+        y += 10;
+        System.out.println(x);
+        System.out.println(y);
     }
 
     private static void void002() {
@@ -15,7 +27,6 @@ public class test {
         System.out.println(test1);
         System.out.println(test2);
     }
-
 
 
     private static void void001() {
