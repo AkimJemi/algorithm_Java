@@ -5,6 +5,20 @@ import java.util.List;
 
 public class test {
     public static void main(String[] args) {
+//        void001();
+        void002();
+    }
+
+    private static void void002() {
+        String test1 = "test1";
+        String test2 = test1 = "test2";
+        System.out.println(test1);
+        System.out.println(test2);
+    }
+
+
+
+    private static void void001() {
         List<String> test1 = new ArrayList<>();
         test1.add("a");
         test1.add("a");
