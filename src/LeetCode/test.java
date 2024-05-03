@@ -11,8 +11,7 @@ public class test {
         int x = 10;
         int y = 15;
         void003(x, y);
-        System.out.println(x);
-        System.out.println(y);
+        System.out.println((int) 'a');
     }
 
     private static void void003(int x, int y) {
