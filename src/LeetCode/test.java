@@ -1,6 +1,7 @@
 package LeetCode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class test {
@@ -45,5 +46,16 @@ public class test {
         System.out.println(test1.retainAll(test2));
         System.out.println(test1);
 
+    }
+
+    public String solution(String[] cards1, String[] cards2, String[] goal) {
+        String[] mergeArray = new String[cards1.length + cards2.length];
+        System.arraycopy(cards1, 0, mergeArray, 0, cards1.length);
+        System.arraycopy(cards2, 0, mergeArray, cards1.length, cards2.length);
+        Arrays.sort(mergeArray);
+        Arrays.sort(goal);
+        System.out.println(Arrays.toString(mergeArray));
+        System.out.println(Arrays.equals(mergeArray, goal));
+        return "";
     }
 }
