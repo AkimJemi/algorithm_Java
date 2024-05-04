@@ -1,21 +1,23 @@
 package LeetCode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        String test = "";
+//        String test = "";
 //        System.out.println(Arrays.toString(test.split(" ")));
-
-        System.out.println((int) Double.MAX_VALUE);
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MAX_VALUE + 1);
-        System.out.println(Integer.MAX_VALUE * 2 + 2);
-        System.out.println(Long.MAX_VALUE);
-        System.out.println(Short.MAX_VALUE);
-        System.out.println(Byte.MAX_VALUE);
+//        Map<Character, Integer> map = new HashMap<>();
+//        System.out.println(map.get('c'));
+        Integer test = 1;
+        int te = 2;
+        System.out.println(test.equals(te));
+//        System.out.println((int) Double.MAX_VALUE);
+//        System.out.println(Integer.MAX_VALUE);
+//        System.out.println(Integer.MAX_VALUE + 1);
+//        System.out.println(Integer.MAX_VALUE * 2 + 2);
+//        System.out.println(Long.MAX_VALUE);
+//        System.out.println(Short.MAX_VALUE);
+//        System.out.println(Byte.MAX_VALUE);
 //        void001();
 //        void002();
 //        int x = 10;
@@ -69,3 +71,26 @@ public class test {
         return "";
     }
 }
+//    public int solution(String s) {
+//        Map<Character, Integer> map = new HashMap<>();
+//        int count = 0;
+//        for (int i = 0; i < s.length(); i++) {
+//            char target = s.charAt(i);
+//            if (map.isEmpty()) {
+//                map.put(target, map.getOrDefault(target, 0) + 1);
+//                if (i == s.length() - 1) {
+//                    count++;
+//                }
+//                continue;
+//            }
+//            map.put(target, map.getOrDefault(target, 0) + 1);
+//            int targetCount = map.getOrDefault(target, 0);
+//            Optional<Map.Entry<Character, Integer>> optional = map.entrySet().stream().filter(a -> !a.getKey().equals(target)).filter(a -> a.getValue() == targetCount).findFirst();
+//            if (!optional.isPresent()) {
+//                if (i == s.length() - 1) {
+//                    count++;
+//                }
+//            } else {
+//                map = new HashMap<>();
+//                count++;
+//            }
