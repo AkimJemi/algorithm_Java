@@ -6,12 +6,17 @@ import java.util.List;
 
 public class test {
     public static void main(String[] args) {
+        String test = "";
+        System.out.println(Arrays.toString(test.split(" ")));
+
+
 //        void001();
 //        void002();
-        int x = 10;
-        int y = 15;
-        void003(x, y);
-        System.out.println((int) 'a');
+//        int x = 10;
+//        int y = 15;
+//        void003(x, y);
+//        System.out.println((int) 'a');
+
     }
 
     private static void void003(int x, int y) {
