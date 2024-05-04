@@ -7,9 +7,15 @@ import java.util.List;
 public class test {
     public static void main(String[] args) {
         String test = "";
-        System.out.println(Arrays.toString(test.split(" ")));
+//        System.out.println(Arrays.toString(test.split(" ")));
 
-
+        System.out.println((int) Double.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE + 1);
+        System.out.println(Integer.MAX_VALUE * 2 + 2);
+        System.out.println(Long.MAX_VALUE);
+        System.out.println(Short.MAX_VALUE);
+        System.out.println(Byte.MAX_VALUE);
 //        void001();
 //        void002();
 //        int x = 10;

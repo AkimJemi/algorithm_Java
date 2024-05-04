@@ -1,6 +1,7 @@
 package Programmers.Level1;
 
 import java.math.BigInteger;
+import java.util.stream.LongStream;
 
 public class 크기가_작은_부분_문자열 {
     public static void main(String[] args) {
@@ -22,5 +23,48 @@ class Solution크기가_작은_부분_문자열 {
             }
         }
         return count;
+    }
+}
+
+/*
+ *Someone else's code to study
+ * */
+class Solution크기가_작은_부분_문자열1 {
+    public int solution(String t, String p) {
+        long targetNumber = Long.parseLong(p);
+        int targetNumberLength = p.length();
+
+        return (int) LongStream.range(0L, t.length() - targetNumberLength + 1L)
+                .mapToObj(i -> t.substring((int) i, (int) i + targetNumberLength))
+                .mapToLong(Long::parseLong)
+                .filter(number -> number <= targetNumber)
+                .count();
+    }
+}
+
+class Solution크기가_작은_부분_문자열2 {
+    public int solution(String t, String p) {
+        int pLength = p.length();
+        long pValue = Long.parseLong(p);
+        int answer = 0;
+        for (int i = 0; i <= t.length() - pLength; i++) {
+            long tValue = Long.parseLong(t.substring(i, i + pLength));
+            if (tValue <= pValue)
+                answer++;
+        }
+        return answer;
+    }
+}
+
+class Solution크기가_작은_부분_문자열3 {
+    public int solution(String t, String p) {
+        int answer = 0;
+        for (int i = 0; i < t.length(); i++) {
+            String num = t.substring(i, i + p.length());
+            if (num.compareTo(p) < 1) {
+                answer++;
+            }
+        }
+        return answer;
     }
 }
