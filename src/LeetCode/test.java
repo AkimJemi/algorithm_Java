@@ -36,7 +36,7 @@ public class test {
 //        int y = 15;
 //        void003(x, y);
 //        System.out.println((int) 'a');
-
+//                    int count = (int) IntStream.rangeClosed(1, a).filter(b -> a % b == 0).count();
     }
 
     private static void void003(int x, int y) {
