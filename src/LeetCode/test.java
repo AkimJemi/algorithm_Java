@@ -10,7 +10,19 @@ public class test {
 //        System.out.println(map.get('c'));
         Integer test = 1;
         int te = 2;
-        System.out.println(test.equals(te));
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        priorityQueue.add(1);
+        priorityQueue.add(2);
+        priorityQueue.add(4);
+        priorityQueue.add(3);
+        priorityQueue.add(2);
+
+        System.out.println(priorityQueue);
+        System.out.println(priorityQueue.peek());
+        System.out.println(priorityQueue);
+        System.out.println(priorityQueue.poll());
+        System.out.println(priorityQueue);
+
 //        System.out.println((int) Double.MAX_VALUE);
 //        System.out.println(Integer.MAX_VALUE);
 //        System.out.println(Integer.MAX_VALUE + 1);
@@ -94,3 +106,55 @@ public class test {
 //                map = new HashMap<>();
 //                count++;
 //            }
+
+//package Programmers.Level1;
+//
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.Collections;
+//import java.util.List;
+//
+//public class 명예의_전당_1 {
+//    public static void main(String[] args) {
+//        int[] intArray = new int[]{};
+//        String[] strArray = new String[]{};
+//        System.out.println(Arrays.toString(new Solution명예의_전당_1().solution(3, new int[]{10, 100, 20, 150, 1, 100, 200})));
+//    }
+//}
+//
+//class Solution명예의_전당_1 {
+//    public int[] solution(int k, int[] score) {
+//        int[] array = new int[score.length];
+//        int[] result = new int[score.length];
+//        int arrayMinIndex = 0;
+//        int arrayMinVal = score[arrayMinIndex];
+//        for (int i = 0; i < score.length; i++) {
+//            if (i < k) {
+//                if (arrayMinVal < score[i]) {
+//                    result[i] = arrayMinVal;
+//                } else {
+//                    arrayMinIndex = i;
+//                    arrayMinVal = score[arrayMinIndex];
+//                    result[i] = score[i];
+//                }
+//                array[i] = score[i];
+//            } else {
+//                if (arrayMinVal < score[i]) {
+//                    arrayMinIndex = i;
+//                    arrayMinVal = score[arrayMinIndex];
+//                    array[arrayMinIndex] = arrayMinVal;
+//                    result[i] = arrayMinVal;
+//                } else {
+//                    arrayMinIndex = i;
+//                    arrayMinVal = score[arrayMinIndex];
+//                    result[i] = score[i];
+//                }
+//                result[i] = arrayMinVal;
+//            }
+//        }
+//        return result;
+//    }
+//}
+///*
+// *Someone else's code to study
+// * */
