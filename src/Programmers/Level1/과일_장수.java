@@ -28,6 +28,7 @@ class Solution과일_장수 {
         }
         return result;
     }
+
     public int solution2(int k, int m, int[] score) {
         int result = 0;
         if (score.length > 100000) {
@@ -56,3 +57,14 @@ class Solution과일_장수 {
 /*
  *Someone else's code to study
  * */
+class Solution과일_장수1 {
+    public int solution(int k, int m, int[] score) {
+        int answer = 0;
+        Arrays.sort(score);
+        for (int i = score.length - m; i >= 0; i -= m) {
+            answer += score[i] * m;
+        }
+
+        return answer;
+    }
+}
