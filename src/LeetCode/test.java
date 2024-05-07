@@ -1,17 +1,28 @@
 package LeetCode;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class test {
     public static void main(String[] args) {
+        String a = "1234";
+        String b = "12345";
+        System.out.println(b.compareTo(a));
+
+
+//        List<String> resultList = List.of("1", "2", "3", "4", "3").stream()
+//                .filter(old -> List.of("5", "2", "3", "4").stream()
+//                        .anyMatch(Predicate.isEqual(old)))
+//                .collect(Collectors.toList());
 //        String test = "";
 //        System.out.println(Arrays.toString(test.split(" ")));
 //        Map<Character, Integer> map = new HashMap<>();
 //        System.out.println(map.get('c'));
-        int[] phone = new int[]{2, 3, 5};
-        for (int i = 0; i < phone.length; i++) {
-            System.out.println(phone[i]); // 0 1 2
-        }
+//        int[] phone = new int[]{2, 3, 5};
+//        for (int i = 0; i < phone.length; i++) {
+//            System.out.println(phone[i]); // 0 1 2
+//        }
 
 //        Integer test = 1;
 //        int te = 2;
