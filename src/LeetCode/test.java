@@ -170,6 +170,11 @@ public class test {
 //        }
 //        return result;
 //    }
+//        for (int i = 0; i < players.length; i++) {
+//            int rankPoint = players.length - i;
+//            String target = players[i];
+//            resultMap.put(target, map.containsKey(target) ? rankPoint + map.get(target).intValue() : rankPoint);
+//        }
 //}
 ///*
 // *Someone else's code to study

@@ -1,5 +1,5 @@
 package Programmers.Level1;
-public class ProgrogrammersSampleClassName {
+class ProgrogrammersSampleClassName {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
