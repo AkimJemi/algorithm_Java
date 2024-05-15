@@ -1,15 +1,56 @@
 package Programmers.Level1;
 
+import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
-        System.out.println(new Solution최소직사각형().solution(new int[][]{{60, 50}, {30, 70}, {60, 30}, {80, 40}}));
-        System.out.println(new Solution최소직사각형().solution(new int[][]{{10, 7}, {12, 3}, {8, 15}, {14, 7}, {5, 15}}));
-        System.out.println(new Solution최소직사각형().solution(new int[][]{{14, 4}, {19, 6}, {6, 16}, {18, 7}, {7, 11}}));
+    }
+}
+
+
+class Solution숫자_문자열과_영단어 {
+    public int solution(String s) {
+        return Integer.valueOf(s.replace("zero", "0").replace("one", "1").replace("two", "2").replace("three", "3").replace("four", "4").replace("five", "5").replace("six", "6").replace("seven", "7").replace("eight", "8").replace("nine", "9"));
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public int solution1(String s) {
+        String[] strArr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        for (int i = 0; i < strArr.length; i++) {
+            s = s.replaceAll(strArr[i], Integer.toString(i));
+        }
+        return Integer.parseInt(s);
+    }
+}
+
+class Solution부족한_금액_계산하기 {
+    public long solution(int price, int money, int count) {
+        BigInteger priceBig = new BigInteger(String.valueOf(price));
+        BigInteger countBig = new BigInteger(String.valueOf((count * (count + 1) / 2)));
+        long result = Long.valueOf(priceBig.multiply(countBig).toString()) - money;
+        return result < 0 ? 0 : result;
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    // parameter is not long anymore
+    public long solution1(long price, long money, long count) {
+        return Math.max(price * (count * (count + 1) / 2) - money, 0);
+    }
+
+    public long solution2(int price, int money, int count) {
+        long totalPrice = (price * count * ((long) count + 1)) / 2;
+        return (money >= totalPrice) ? 0 : totalPrice - money;
     }
 }
 
