@@ -2,18 +2,98 @@ package Programmers.Level1;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
+        System.out.println(new SolutionK번째수().solution(new int[]{1, 5, 2, 6, 3, 7, 4}, new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}}));
+    }
+}
+class Solution예산 {
+    public int solution(int[] d, int budget) {
+        int answer = 0;
+        return answer;
+    }
+}
+class SolutionK번째수 {
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+        for (int n = 0; n < commands.length; n++) {
+            int i = commands[n][0];
+            int j = commands[n][1];
+            int[] result = new int[j - i + 1];
+            for (int index = i - 1; index < j; index++) result[index - (i - 1)] = array[index];
+            Arrays.sort(result);
+            answer[n] = result[commands[n][2] - 1];
+        }
+        return answer;
+    }
+    /*
+     *Someone else's code to study
+     * */
+    public int[] solution1(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+        for (int i = 0; i < commands.length; i++) {
+            int[] temp = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
+            Arrays.sort(temp);
+            answer[i] = temp[commands[i][2] - 1];
+        }
+        return answer;
     }
 }
 
+class Solution내적 {
+    public int solution(int[] a, int[] b) {
+//        IntStream.range(0, a.length).map(i -> a[i] * b[i]).reduce(Integer::sum).getAsInt();
+//        IntStream.range(0, a.length).map(i -> a[i] * b[i]).sum();
+        int answer = 0;
+        for (int i = 0; i < a.length; i++)
+            answer += a[i] * b[i];
+        return answer;
+    }
+}
+
+class Solution음양_더하기 {
+    public int solution(int[] absolutes, boolean[] signs) {
+        int answer = 0;
+        for (int i = 0; i < absolutes.length; i++)
+            if (signs[i]) answer += absolutes[i];
+            else answer -= absolutes[i];
+        return answer;
+    }
+}
+class Solution약수의_개수와_덧셈 {
+    public int solution(int left, int right) {
+        int answer = 0;
+        for (int i = left; i <= right; i++) {
+            int cnt = 0;
+            for (int j = 1; j * j <= i; j++) {
+                if (j * j == i) cnt++;
+                else if (i % j == 0) cnt += 2;
+            }
+            if (cnt % 2 == 0) answer += i;
+            else answer -= i;
+        }
+        return answer;
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public int solution2(int left, int right) {
+        int answer = 0;
+        for (int i = left; i <= right; i++) {
+            if (i % Math.sqrt(i) == 0) {
+                answer -= i;
+            } else {
+                answer += i;
+            }
+        }
+        return answer;
+    }
+}
 
 class Solution숫자_문자열과_영단어 {
     public int solution(String s) {

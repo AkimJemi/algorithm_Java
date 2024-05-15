@@ -6,10 +6,20 @@ import java.util.stream.Collectors;
 
 public class test {
     public static void main(String[] args) {
-        String a = "1234";
-        String b = "12345";
-        System.out.println(b.compareTo(a));
-
+        List<Integer> list = new ArrayList<>();
+//        for (int i = 1; i <= result.length; i++) {
+//            int cnt = 0;
+        int number = 60;
+        for (int j = 1; j * j <= number; j++) {
+            if (j * j == 5) {
+                list.add(j * j);
+            } else if (number % j == 0) {
+                list.add(j);
+                list.add(number / j);
+            }
+        }
+        System.out.println(list);
+    }
 
 //        List<String> resultList = List.of("1", "2", "3", "4", "3").stream()
 //                .filter(old -> List.of("5", "2", "3", "4").stream()
@@ -53,7 +63,6 @@ public class test {
 //        void003(x, y);
 //        System.out.println((int) 'a');
 //                    int count = (int) IntStream.rangeClosed(1, a).filter(b -> a % b == 0).count();
-    }
 
     private static void void003(int x, int y) {
         x += 5;
