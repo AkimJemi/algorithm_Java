@@ -5,16 +5,10 @@ import java.util.Scanner;
 
 public class test2 {
     public static void main(String[] args) {
-//        System.out.println(lengthOfLastWord("   fly me   to   the moon  "));
-//        System.out.println("test");
-//        Scanner sc = new Scanner(System.in);
-//        String[] strArray = sc.next().split(" ");
-//        System.out.println(Integer.valueOf(strArray[0]) + Integer.valueOf(strArray[1]));
-//        System.out.println(Arrays.toString(args));
-        System.out.println((double) 1 / 8);
-        System.out.println((double) 3 / 7);
-        System.out.println((double) 1 / 2);
-        System.out.println((double) 0 / 1);
+        System.out.println((int) 'Z');
+        System.out.println((int) 'a');
+        System.out.println((int) 's');
+        System.out.println((int) 'S');
     }
 
     static int lengthOfLastWord(String s) {

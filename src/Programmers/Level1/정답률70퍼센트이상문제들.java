@@ -2,21 +2,77 @@ package Programmers.Level1;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
-        System.out.println(new SolutionK번째수().solution(new int[]{1, 5, 2, 6, 3, 7, 4}, new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}}));
+        System.out.println(new Solution서울에서_김서방_찾기().solution(new String[]{"Jane", "Kim"}));
     }
 }
+
+class Solution서울에서_김서방_찾기 {
+    public String solution(String[] seoul) {
+        for (int i = 0; i < seoul.length; i++) {
+            if (seoul[i].equals("Kim")) {
+                return "김서방은 " + i + "에 있다";
+            }
+        }
+        /*
+         *Someone else's code to study
+         * */
+        Arrays.asList(seoul).indexOf("Kim");
+        return null;
+    }
+
+}
+
+class Solution문자열_다루기_기본 {
+    public boolean solution(String s) {
+        return s.length() == 4 || s.length() == 6 ? s.chars().allMatch(Character::isDigit) : false;
+    }
+}
+
+class Solution나누어_떨어지는_숫자_배열 {
+    public int[] solution(int[] arr, int divisor) {
+        Arrays.sort(arr);
+        arr = Arrays.stream(arr).filter(a -> a % divisor == 0).toArray();
+        return arr.length != 0 ? arr : new int[]{-1};
+    }
+}
+
+class Solution문자열_내림차순으로_배치하기 {
+    public String solution(String s) {
+        return Arrays.stream(s.split("")).sorted(Comparator.reverseOrder()).collect(Collectors.joining());
+    }
+}
+
+
+class Solution두_정수_사이의_합 {
+    public long solution(int a, int b) {
+        long max = Math.max(a, b);
+        long min = Math.min(a, b) - 1;
+        return (max * (max + 1) / 2) - (min * (min + 1) / 2);
+    }
+}
+
+class Solution가운데_글자_가져오기 {
+    public String solution(String s) {
+        int length = s.length();
+        return length % 2 == 0 ? s.substring(length / 2 - 1, length / 2 + 1) : s.substring(length / 2, length / 2 + 1);
+    }
+}
+
 class Solution예산 {
     public int solution(int[] d, int budget) {
         int answer = 0;
         return answer;
     }
 }
+
 class SolutionK번째수 {
     public int[] solution(int[] array, int[][] commands) {
         int[] answer = new int[commands.length];
@@ -30,6 +86,7 @@ class SolutionK번째수 {
         }
         return answer;
     }
+
     /*
      *Someone else's code to study
      * */
@@ -64,6 +121,7 @@ class Solution음양_더하기 {
         return answer;
     }
 }
+
 class Solution약수의_개수와_덧셈 {
     public int solution(int left, int right) {
         int answer = 0;
