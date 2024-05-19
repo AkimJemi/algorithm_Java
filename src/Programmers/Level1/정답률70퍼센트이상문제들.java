@@ -10,7 +10,60 @@ public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
-        System.out.println(new Solution서울에서_김서방_찾기().solution(new String[]{"Jane", "Kim"}));
+        System.out.println(Arrays.toString(new Solution문자열_내_마음대로_정렬하기().solution(new String[]{"sun", "bed", "car"}, 1)));
+        System.out.println(Arrays.toString(new Solution문자열_내_마음대로_정렬하기().solution(new String[]{"abce", "abcd", "cdx"}, 2)));
+    }
+}
+
+class Solution문자열_내_마음대로_정렬하기 {
+    public String[] solution(String[] strings, int n) {
+        return Arrays.stream(strings).sorted((o1, o2) -> {
+            if (o1.charAt(n) > o2.charAt(n)) {
+                return 1;
+            } else if (o1.charAt(n) == o2.charAt(n)) {
+                int in = n + 1;
+                while (o1.charAt(in) == o2.charAt(in)) {
+                    if (in == Math.min(o1.length(), o2.length()) - 1) {
+                        break;
+                    }
+                    in++;
+                }
+                return o1.charAt(in) > o2.charAt(in) ? 1 : -1;
+            }
+            return -1;
+        }).toArray(String[]::new);
+    }
+}
+
+class Solution_1차_비밀지도 {
+    public String[] solution(int n, int[] arr1, int[] arr2) {
+        String[] result = new String[n];
+        for (int i = 0; i < n; i++) {
+            String sum = String.valueOf(Long.valueOf(Integer.toBinaryString(arr1[i])) + Long.valueOf(Integer.toBinaryString(arr2[i])));
+            sum = sum.replaceAll("[1-9]", "#").replace("0", " ");
+//            String sum = Integer.toBinaryString(arr1[i] | arr2[i]);
+//            sum = sum.replaceAll("1", "#").replace("0", " ");
+            result[i] = sum.length() < n ? " ".repeat(n - sum.length()) + sum : sum;
+        }
+        return result;
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public String[] solution1(int n, int[] arr1, int[] arr2) {
+        String[] answer = new String[n];
+        for (int i = 0; i < n; i++) {
+            StringBuilder str = new StringBuilder();
+            int temp = arr1[i] | arr2[i];
+            int w = n;
+            while (w-- != 0) {
+                str.insert(0, (temp % 2) == 1 ? "#" : " ");
+                temp >>= 1;
+            }
+            answer[i] = String.valueOf(str);
+        }
+        return answer;
     }
 }
 

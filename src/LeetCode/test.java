@@ -6,6 +6,26 @@ import java.util.stream.Collectors;
 
 public class test {
     public static void main(String[] args) {
+        TEST_2020519_02();
+    }
+
+    private static void TEST_2020519_02() {
+        String test1 = "abcdc";
+        String test2 = "abcdbc";
+        int n = 1;
+        System.out.println(test1.substring(n));
+        System.out.println(test2.substring(n));
+        System.out.println(test1.substring(n).compareTo(test2.substring(n)));
+    }
+
+    private static void TEST_2020519() {
+        int a = 11110;
+        int b = 01000;
+        int c = a | b;
+        System.out.println(c);
+    }
+
+    private static void TEST_2020501() {
         List<Integer> list = new ArrayList<>();
 //        for (int i = 1; i <= result.length; i++) {
 //            int cnt = 0;
