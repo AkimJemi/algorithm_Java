@@ -6,7 +6,30 @@ import java.util.stream.Collectors;
 
 public class test {
     public static void main(String[] args) {
-        TEST_2020519_02();
+        TEST_2020521();
+    }
+
+    private static void TEST_2020521() {
+        List<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(2);
+        list.add(2);
+        list.add(2);
+        list.add(0);
+        list.add(0);
+        list.add(0);
+        list.add(0);
+        list.add(2);
+        list.add(2);
+        list.add(2);
+        list.add(2);
+        System.out.println(list.remove(0));
+        System.out.println(list.remove((Integer) 0));
+        System.out.println(list.remove((Integer) 0));
+        System.out.println(list.remove((Integer) 0));
+        System.out.println(list.remove((Integer) 0));
+        System.out.println(list.remove((Integer) 0));
+        System.out.println(list);
     }
 
     private static void TEST_2020519_02() {
