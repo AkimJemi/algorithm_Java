@@ -3,6 +3,7 @@ package Programmers.Level1;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 class 로또의_최고_순위와_최저_순위 {
     public static void main(String[] args) {
@@ -32,8 +33,66 @@ class Solution로또의_최고_순위와_최저_순위 {
         }
         return new int[]{7 - count - max != 7 ? 7 - count - max : 6, 7 - count != 7 ? 7 - count : 6};
     }
+
+    /*
+     *Someone else's code to study
+     * */
+    public int[] solution1(int[] lottos, int[] win_nums) {
+        int[] answer = new int[2];
+        int cnt1 = 0;
+        int cnt2 = 0;
+        for (int i : lottos) {
+            if (i == 0) {
+                cnt1++;
+                continue;
+            }
+            for (int j : win_nums) {
+                if (i == j) cnt2++;
+            }
+        }
+        answer[0] = getGrade(cnt1 + cnt2);
+        answer[1] = getGrade(cnt2);
+        return answer;
+    }
+
+    public int getGrade(int n) {
+        switch (n) {
+            case 6:
+                return 1;
+            case 5:
+                return 2;
+            case 4:
+                return 3;
+            case 3:
+                return 4;
+            case 2:
+                return 5;
+            default:
+                return 6;
+        }
+    }
+
+    public int[] solution2(int[] lottos, int[] winNums) {
+        return LongStream.of(
+                        (lottos.length + 1) - Arrays.stream(lottos).filter(l -> Arrays.stream(winNums).anyMatch(w -> w == l) || l == 0).count(),
+                        (lottos.length + 1) - Arrays.stream(lottos).filter(l -> Arrays.stream(winNums).anyMatch(w -> w == l)).count()
+                )
+                .mapToInt(op -> (int) (op > 6 ? op - 1 : op))
+                .toArray();
+    }
+
+    public int[] solution3(int[] lottos, int[] win_nums) {
+        int[] rank = {6, 6, 5, 4, 3, 2, 1};
+        int answer = 0;
+        int hidden = 0;
+        Arrays.sort(win_nums);
+        for (int i = 0; i < lottos.length; i++)
+            if (Arrays.binarySearch(win_nums, lottos[i]) > -1)
+                answer++;
+            else if (lottos[i] == 0)
+                hidden++;
+
+        return new int[]{rank[answer + hidden], rank[answer]};
+    }
 }
 
-/*
- *Someone else's code to study
- * */
