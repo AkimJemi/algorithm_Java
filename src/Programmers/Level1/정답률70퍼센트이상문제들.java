@@ -3,6 +3,8 @@ package Programmers.Level1;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -10,8 +12,20 @@ public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
-        System.out.println(Arrays.toString(new Solution문자열_내_마음대로_정렬하기().solution(new String[]{"sun", "bed", "car"}, 1)));
-        System.out.println(Arrays.toString(new Solution문자열_내_마음대로_정렬하기().solution(new String[]{"abce", "abcd", "cdx"}, 2)));
+        System.out.println(Arrays.toString(new Solution두_개_뽑아서_더하기().solution(new int[]{2, 1, 3, 4, 1})));
+        System.out.println(Arrays.toString(new Solution두_개_뽑아서_더하기().solution(new int[]{5, 0, 2, 7})));
+    }
+}
+
+class Solution두_개_뽑아서_더하기 {
+    public int[] solution(int[] numbers) {
+        Set<Integer> set = new TreeSet<>();
+        for (int i = 0; i < numbers.length - 1; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                set.add(numbers[i] + numbers[j]);
+            }
+        }
+        return set.stream().mapToInt(Integer::intValue).toArray();
     }
 }
 
