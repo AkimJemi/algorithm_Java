@@ -1,10 +1,7 @@
 package Programmers.Level1;
 
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -12,8 +9,38 @@ public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
-        System.out.println(Arrays.toString(new Solution두_개_뽑아서_더하기().solution(new int[]{2, 1, 3, 4, 1})));
-        System.out.println(Arrays.toString(new Solution두_개_뽑아서_더하기().solution(new int[]{5, 0, 2, 7})));
+        System.out.println(new Solution3진법_뒤집기().solution(45));
+        System.out.println(new Solution3진법_뒤집기().solution(125));
+    }
+}
+
+class Solution3진법_뒤집기 {
+    public int solution(int n) {
+        return ternary(n);
+    }
+
+    private int ternary(int n) {
+        String remainder = String.valueOf(n % 3);
+        String[] quotient = String.valueOf(n / 3).split("");
+
+        for (int i = 0; i < quotient.length; i++) {
+            if (quotient[i].compareTo("3") >= 1) {
+                System.out.println("test :  " + quotient[i].compareTo("3"));
+
+            }
+        }
+        return 0;
+
+    }
+}
+
+class Solution제일_작은_수_제거하기 {
+    public int[] solution(int[] arr) {
+        if (arr.length == 1) return new int[]{-1};
+
+        List<Integer> integerList = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        integerList.remove(integerList.stream().min(Integer::compareTo).get());
+        return integerList.stream().mapToInt(Integer::intValue).toArray();
     }
 }
 
