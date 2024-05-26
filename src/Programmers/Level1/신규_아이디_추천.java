@@ -29,21 +29,4 @@ class Solution신규_아이디_추천 {
         }
         return new_id;
     }
-//    public String solution(String new_id) {
-//        new_id = new_id.replaceAll("[0-9]", "");
-//        StringBuilder stringBuilder = new StringBuilder();
-//        String lastStr = null;
-//        for (int i = 0; i < new_id.length(); i++) {
-//            char cha = new_id.charAt(i);
-//            if (cha != '-' || cha != '_' || cha != '-' || cha != '.') {
-//                continue;
-//            }
-//            if (cha == '.' && lastStr.equals(".")) {
-//                continue;
-//            }
-//            lastStr = String.valueOf(cha);
-//            stringBuilder.append(cha);
-//        }
-//        return stringBuilder.toString();
-//    }
 }
