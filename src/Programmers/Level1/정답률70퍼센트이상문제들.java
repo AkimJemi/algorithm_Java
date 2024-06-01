@@ -9,8 +9,38 @@ public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
-        System.out.println(new Solution3진법_뒤집기().solution(45));
-        System.out.println(new Solution3진법_뒤집기().solution(125));
+//        System.out.println(new Solution예산().solution(new int[]{1, 3, 2, 5, 4}, 9));
+//        System.out.println(new Solution예산().solution(new int[]{2, 2, 3, 3}, 10));
+        System.out.println(new Solution예산().solution(new int[]{1}, 2));
+    }
+}
+
+class Solution예산 {
+    public int solution(int[] d, int budget) {
+        Arrays.sort(d);
+        int sum = 0;
+        for (int i = 0; i < d.length; i++) {
+            sum += d[i];
+            if (sum >= budget) {
+                return sum == budget ? i + 1 : i;
+            } else if (i == d.length - 1) {
+                return i + 1;
+            }
+        }
+        return 0;
+    }
+    /*
+     *Someone else's code to study
+     * */
+    public int solution1(int[] d, int budget) {
+        int answer = 0;
+        Arrays.sort(d);
+        for (int i = 0; i < d.length; i++) {
+            budget -= d[i];
+            if (budget < 0) break;
+            answer++;
+        }
+        return answer;
     }
 }
 
@@ -160,12 +190,6 @@ class Solution가운데_글자_가져오기 {
     }
 }
 
-class Solution예산 {
-    public int solution(int[] d, int budget) {
-        int answer = 0;
-        return answer;
-    }
-}
 
 class SolutionK번째수 {
     public int[] solution(int[] array, int[][] commands) {
