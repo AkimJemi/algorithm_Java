@@ -4,17 +4,267 @@ import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class 정답률70퍼센트이상문제들 {
     public static void main(String[] args) {
         int[] intArray = new int[]{};
         String[] strArray = new String[]{};
-//        System.out.println(new Solution예산().solution(new int[]{1, 3, 2, 5, 4}, 9));
-//        System.out.println(new Solution예산().solution(new int[]{2, 2, 3, 3}, 10));
-        System.out.println(new Solution예산().solution(new int[]{1}, 2));
+//        System.out.println(Arrays.toString(new 최대공약수와_최소공배수Solution().solution(3, 12)));
+//        System.out.println(Arrays.toString(new 최대공약수와_최소공배수Solution().solution(2, 5)));
+//        System.out.println(Arrays.toString(new 최대공약수와_최소공배수Solution().solution(4, 6)));
+        System.out.println(new Solution시저_암호().solution("AB", 1));
+        System.out.println(new Solution시저_암호().solution("z", 1));
+        System.out.println(new Solution시저_암호().solution("a B z", 4));
+//        System.out.println((int) 'a');
+//        System.out.println((int) 'z');
+//        System.out.println((int) 'A');
+//        System.out.println((int) 'Z');
+//        System.out.println(new Solution시저_암호().solution("a", 0));
+//        System.out.println(new Solution시저_암호().solution("a", 25));
+//        System.out.println(new Solution시저_암호().solution("z", 0));
+//        System.out.println(new Solution시저_암호().solution("z", 25));
+//        System.out.println(new Solution시저_암호().solution("A", 0));
+//        System.out.println(new Solution시저_암호().solution("A", 25));
+//        System.out.println(new Solution시저_암호().solution("Z", 0));
+//        System.out.println(new Solution시저_암호().solution("Z", 25));
     }
 }
 
+class Solution시저_암호 {
+    public String solution(String s, int n) {
+        String[] array = s.split("");
+        String answer = "";
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(" ")) answer += array[i];
+            else {
+                int num = (int) array[i].charAt(0);
+                if (num >= 65 && num <= 90) {
+                    num = 65 + (num - 90) + n;
+                } else if (num >= 97 && num <= 122) {
+                    num = 97 + (num - 123) + n;
+                }
+
+//                if (num >= 123) num = 97 + (num - 123);
+//                else if (97 > num && num >= 91) num = 65 + (num - 91);
+                answer += (char) num;
+            }
+        }
+        return answer;
+    }
+}
+
+class Solution이상한_문자_만들기 {
+    public String solution(String s) {
+        String[] array = s.split("");
+        String str = "";
+        int wordStartIndex = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(" ")) {
+                wordStartIndex = 0;
+                str += array[i];
+            } else if (wordStartIndex++ % 2 == 0) str += array[i].toUpperCase();
+            else str += array[i].toLowerCase();
+        }
+        return str;
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public String solution2(String s) {
+        String answer = "";
+        int cnt = 0;
+        String[] array = s.split("");
+        for (String ss : array) {
+            cnt = ss.contains(" ") ? 0 : cnt + 1;
+            answer += cnt % 2 == 0 ? ss.toLowerCase() : ss.toUpperCase();
+        }
+        return answer;
+    }
+}
+
+class Solution행렬의_덧셈 {
+    public int[][] solution(int[][] arr1, int[][] arr2) {
+        int[][] arr3 = new int[arr1.length][arr1[0].length];
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[i].length; j++) {
+                arr3[i][j] = arr1[i][j] + arr2[i][j];
+            }
+        }
+        return arr3;
+    }
+}
+
+class Solution수박수박수박수박수박수 {
+    public String solution(int n) {
+        return "수박".repeat(n / 2) + (n % 2 == 0 ? "" : "수");
+    }
+}
+
+class Solution문자열을_정수로_바꾸기 {
+    public int solution(String s) {
+        return Integer.valueOf(s);
+    }
+}
+
+class Solution약수의_합 {
+    public int solution(int n) {
+        return IntStream.rangeClosed(1, n / 2).filter(a -> n % a == 0).sum() + n;
+    }
+}
+
+class Solution자연수_뒤집어_배열로_만들기 {
+    public int[] solution(long n) {
+        return Arrays.stream(new StringBuilder(String.valueOf(n)).reverse().toString().split("")).mapToInt(Integer::valueOf).toArray();
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public int[] solution1(long n) {
+        return new StringBuilder().append(n).reverse().chars().map(Character::getNumericValue).toArray();
+    }
+}
+
+class Solution정수_내림차순으로_배치하기 {
+    public long solution(long n) {
+        return Long.valueOf(Arrays.stream(String.valueOf(n).split("")).sorted(Comparator.reverseOrder()).collect(Collectors.joining()));
+    }
+}
+
+class Solution자릿수_더하기 {
+    public int solution(int n) {
+        return Arrays.stream(String.valueOf(n).split("")).mapToInt(Integer::valueOf).sum();
+    }
+}
+
+class Solution정수_제곱근_판별 {
+    public long solution(long n) {
+        double powNum = Math.sqrt(n);
+        return powNum - (int) powNum == 0 ? ((long) powNum + 1) * ((long) powNum + 1) : -1;
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public long solution1(long n) {
+        if (Math.pow((int) Math.sqrt(n), 2) == n)
+            return (long) Math.pow(Math.sqrt(n) + 1, 2);
+        return -1;
+    }
+
+    public long solution2(long n) {
+        double i = Math.sqrt(n);
+        return Math.floor(i) == i ? (long) Math.pow(i + 1, 2) : -1;
+    }
+}
+
+class Solution핸드폰_번호_가리기 {
+    public String solution(String phone_number) {
+        return "*".repeat(phone_number.length() - 4) + phone_number.substring(phone_number.length() - 4);
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public String solution1(String phone_number) {
+        return phone_number.replaceAll(".(?=.{4})", "*");
+    }
+}
+
+class Solution짝수와_홀수 {
+    public String solution(int num) {
+        return num % 2 == 0 ? "Even" : "Odd";
+    }
+}
+
+class Solution하샤드_수 {
+    public boolean solution(int x) {
+        return x % Arrays.stream(String.valueOf(x).split("")).mapToInt(Integer::valueOf).sum() == 0;
+    }
+}
+
+class Solution콜라츠_추측 {
+    public int solution(int num) {
+        long longNum = num;
+        if (longNum == 1) return 0;
+        for (int i = 1; i <= 500; i++) {
+            longNum = longNum % 2 == 0 ? longNum / 2 : (longNum * 3 + 1);
+            if (longNum == 1) return i;
+        }
+        return -1;
+    }
+}
+
+class Solution최대공약수와_최소공배수 {
+    public int[] solution(int n, int m) {
+        int maxNum = Math.max(n, m);
+        int minNum = Math.min(n, m);
+        int max = maxNum % minNum == 0 ? maxNum : 0;
+        int min = maxNum % minNum == 0 ? minNum : 0;
+        if (max != 0 && min != 0) return new int[]{min, max};
+        int n1 = IntStream.rangeClosed(2, minNum).filter(a -> minNum % a == 0).findFirst().orElse(1);
+        int n2 = IntStream.rangeClosed(2, minNum).filter(a -> maxNum % a == 0).findFirst().orElse(1);
+        int n3 = n1 * n2;
+        min = IntStream.rangeClosed(2, minNum).filter(a -> minNum % a == 0 && maxNum % a == 0).findFirst().orElse(1);
+        max = IntStream.rangeClosed(2, minNum).filter(a -> n3 * a % minNum == 0 && n3 * a % maxNum == 0).findFirst().orElse(maxNum) * minNum;
+        return new int[]{min, max};
+    }
+}
+
+
+class x만큼_간격이_있는_n개의_숫자Solution {
+    public long[] solution(int x, int n) {
+        long[] result = new long[n];
+        for (int i = 0; i < n; i++)
+            result[i] = (long) x * (i + 1);
+        return result;
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public static long[] solution1(int x, int n) {
+        long[] answer = new long[n];
+        answer[0] = x;
+        for (int i = 1; i < n; i++)
+            answer[i] = answer[i - 1] + x;
+        return answer;
+    }
+
+    public long[] solution2(int x, int n) {
+        return LongStream.iterate(x, i -> i + x).limit(n).toArray();
+    }
+}
+
+class Solution직사각형_별찍기 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        for (int i = 0; i < b; i++)
+            System.out.println("*".repeat(a));
+    }
+}
+
+class Solution평균_구하기 {
+
+    public double solution(int[] arr) {
+        return (double) Arrays.stream(arr).sum() / arr.length;
+    }
+
+    /*
+     *Someone else's code to study
+     * */
+    public double solution1(int[] arr) {
+        return Arrays.stream(arr).average().orElse(0);
+    }
+}
+
+/*
+ *Someone else's code to study
+ * */
 class Solution예산 {
     public int solution(int[] d, int budget) {
         Arrays.sort(d);
@@ -29,6 +279,7 @@ class Solution예산 {
         }
         return 0;
     }
+
     /*
      *Someone else's code to study
      * */
