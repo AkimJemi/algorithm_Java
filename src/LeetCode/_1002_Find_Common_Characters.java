@@ -12,8 +12,6 @@ public class _1002_Find_Common_Characters {
         System.out.println(new Solution1002().commonChars(new String[]{"bella", "label", "roller"}));
         System.out.println(new Solution1002().commonChars(new String[]{"cool", "lock", "cook"}));
     }
-
-
 }
 
 class Solution1002 {
