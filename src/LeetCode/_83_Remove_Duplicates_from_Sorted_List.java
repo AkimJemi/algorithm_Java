@@ -32,4 +32,17 @@ class Solution83 {
 
         return node;
     }
+
+    /* someone else's code to study */
+    public ListNode deleteDuplicates1(ListNode head) {
+        ListNode ptr = head;
+        while (ptr != null && ptr.next != null) {
+            if (ptr.val == ptr.next.val) {
+                ptr.next = ptr.next.next;
+            } else {
+                ptr = ptr.next;
+            }
+        }
+        return head;
+    }
 }
