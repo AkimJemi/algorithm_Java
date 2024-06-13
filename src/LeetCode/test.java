@@ -6,7 +6,20 @@ import java.util.stream.Collectors;
 
 public class test {
     public static void main(String[] args) {
-        TEST_2020521();
+        TEST_2020608();
+    }
+
+    private static void TEST_2020608() {
+        List<List<Integer>> list1 = new ArrayList<>();
+        list1.add(List.of(1, 2, 3, 4));
+        list1.add(List.of(2, 2, 3, 4));
+        list1.add(List.of(5, 6, 7, 8));
+        List<List<Integer>> list2 = new ArrayList<>();
+        list2.add(List.of(1, 2, 3, 4));
+        list2.add(List.of(2, 2, 3, 4));
+        list2.add(List.of(7, 6, 7, 8));
+        System.out.println(list1.stream().filter(a -> list2.contains(a)).collect(Collectors.toList()));
+
     }
 
     private static void TEST_2020521() {

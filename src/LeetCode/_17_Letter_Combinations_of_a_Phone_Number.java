@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 public class _17_Letter_Combinations_of_a_Phone_Number {
     public static void main(String[] args) {
         System.out.println(new Solution17().letterCombinations("02"));
-
     }
 }
 
