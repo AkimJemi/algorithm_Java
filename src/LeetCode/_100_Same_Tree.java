@@ -2,19 +2,19 @@ package LeetCode;
 
 public class _100_Same_Tree {
     public static void main(String[] args) {
-        TreeNode2 f = new TreeNode2(1, new TreeNode2(2), new TreeNode2(3));
+        TreeNode f = new TreeNode(1, new TreeNode(2), new TreeNode(3));
         System.out.println(new Solution100().isSameTree(f, f));
     }
 }
 
 class Solution100 {
-    public boolean isSameTree(TreeNode2 p, TreeNode2 q) {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
         if (p != null && q != null) return backtracking(p, q);
         else if (p == null && q == null) return true;
         else return false;
     }
 
-    private boolean backtracking(TreeNode2 p, TreeNode2 q) {
+    private boolean backtracking(TreeNode p, TreeNode q) {
         if (p.val != q.val) return false;
         if (p.right != null) {
             if (q.right != null) {
@@ -30,21 +30,3 @@ class Solution100 {
     }
 }
 
-class TreeNode2 {
-    int val;
-    TreeNode2 left;
-    TreeNode2 right;
-
-    TreeNode2() {
-    }
-
-    TreeNode2(int val) {
-        this.val = val;
-    }
-
-    TreeNode2(int val, TreeNode2 left, TreeNode2 right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
