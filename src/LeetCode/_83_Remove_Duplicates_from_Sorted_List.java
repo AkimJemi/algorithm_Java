@@ -5,10 +5,10 @@ import java.util.List;
 
 public class _83_Remove_Duplicates_from_Sorted_List {
     public static void main(String[] args) {
-        ListNode listNode = NodeUtils.getNodeFromIntegerArray(new Integer[]{});
-        listNode = new Solution83().deleteDuplicates(listNode);
-        List<Integer> list = NodeUtils.getIntegerListFromNode(listNode);
-        System.out.println(list);
+//        ListNode listNode = NodeUtils.getNodeFromIntegerArray(new Integer[]{});
+//        listNode = new Solution83().deleteDuplicates(listNode);
+//        List<Integer> list = NodeUtils.getIntegerListFromNode(listNode);
+//        System.out.println(list);
     }
 }
 
