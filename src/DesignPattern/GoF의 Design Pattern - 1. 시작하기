@@ -1,0 +1,45 @@
+디자인 패턴
+ 소프트웨어 설계 방법
+ 반복되는 패턴처럼 자주 나타나는 클래스 간의 관계를 맺는 방법
+
+올바른 관계를 맺어야 하는 이유
+ 1. 클래스는 최소한의 단위 기능을 가짐
+ 2. 큰 기능은 이러한 단위 기능을 갖는 클래스들 간의 관계를 통해 개발됨
+ 3. 꼭 필요한 것들만으로 구성된 최적화된 소프트웨어 개발이 용이함
+ 4. 문제 발생시 최소한의 코드 수정으로 유지보수가 용이함
+ 5. 기존 기능에 영향을 주지 않고 새로운 기능 추가에 용이함
+
+GoF의 디자인 패턴
+ 가장 유용하며 대표적인 디자인패턴
+ 4명의 선배 개발자가 체계적으로 정리해 놓은 설계 방법
+ 총 23개의 패턴으로 구성되어 생성 패턴(5) 구조 패턴(7) 행위 패턴(11)으로 분류
+
+ [생성]
+  Factory Method
+  Abstract Factory
+  Builder
+  Prototype
+  Singleton
+ [구조]
+  Adapter
+  Bridge
+  Composite
+  Decorator
+  Facade
+  Flyweight
+  Proxy
+ [행위]
+  Interpreter
+  Template Method
+  Chain of Responsibility
+  Command
+  Iterator
+  Mediator
+  Memento
+  Observer
+  Strategy
+  Visitor
+
+실습 환경
+ OOP가 가능한 프로그래밍 언어 사용: Java
+ 개발툴: Visual Studio Code
