@@ -1,0 +1,78 @@
+Java의 애노테이션(Annotation)은 메타데이터를 코드에 추가하는 방법입니다. 애노테이션을 사용하면 클래스, 메서드, 변수 등에 부가적인 정보를 첨부할 수 있으며, 이 정보는 컴파일 시 또는 런타임에 활용될 수 있습니다. 애노테이션은 코드의 동작을 변경하지 않지만, 다양한 도구와 프레임워크가 애노테이션을 활용해 코드의 동작을 제어하거나, 특정 기능을 자동화할 수 있습니다.
+
+### 애노테이션의 주요 용도:
+
+1. **컴파일러 지시자(Compiler Instructions)**:
+   - 컴파일러에게 특정 경고를 무시하게 하거나, 코드의 오류를 미리 체크하도록 지시합니다.
+   - 예: `@SuppressWarnings`, `@Deprecated`
+
+2. **런타임 처리(Run-time Processing)**:
+   - 런타임 시 리플렉션을 통해 애노테이션의 값을 읽어 특정 동작을 수행합니다.
+   - 예: `@Entity` (JPA), `@Controller` (Spring MVC)
+
+3. **코드 생성 및 자동화**:
+   - 빌드 도구나 프레임워크에서 애노테이션을 분석해, 자동으로 코드를 생성하거나 특정 설정을 적용할 수 있습니다.
+   - 예: `@Getter`, `@Setter` (Lombok)
+
+### 자주 사용하는 자바 애노테이션:
+
+1. **기본 애노테이션**:
+   - `@Override`: 메서드가 슈퍼클래스의 메서드를 오버라이드하고 있음을 명시합니다.
+   - `@Deprecated`: 해당 요소가 더 이상 사용되지 않음을 표시합니다. 사용 시 컴파일 경고가 발생합니다.
+   - `@SuppressWarnings`: 컴파일러 경고를 무시하도록 지시합니다. 예를 들어, `@SuppressWarnings("unchecked")`는 제네릭 관련 경고를 무시합니다.
+
+2. **메타 애노테이션(Meta-Annotations)**:
+   - 애노테이션을 정의하는 애노테이션입니다.
+   - `@Retention`: 애노테이션의 유지 정책을 지정합니다. 예: `RetentionPolicy.RUNTIME` (런타임까지 유지), `RetentionPolicy.CLASS` (컴파일된 클래스 파일에 유지, 디폴트), `RetentionPolicy.SOURCE` (소스 코드에서만 유지).
+   - `@Target`: 애노테이션을 적용할 수 있는 대상(예: 클래스, 메서드, 필드 등)을 지정합니다.
+   - `@Inherited`: 애노테이션이 서브클래스에 상속되도록 합니다.
+   - `@Documented`: 애노테이션이 javadoc에 포함되도록 지정합니다.
+
+3. **Spring Framework 애노테이션**:
+   - `@Component`: 스프링 컨테이너에 빈(Bean)으로 등록되는 클래스임을 명시합니다.
+   - `@Autowired`: 스프링 컨테이너에서 해당 필드나 메서드에 의존성을 자동으로 주입합니다.
+   - `@RequestMapping`: 특정 URL 요청을 해당 메서드와 매핑합니다. 예를 들어, `@RequestMapping("/home")`는 `/home` 경로로 들어오는 HTTP 요청을 처리하는 메서드를 지정합니다.
+
+4. **JPA 애노테이션**:
+   - `@Entity`: 해당 클래스가 JPA 엔티티임을 명시합니다.
+   - `@Table`: 엔티티와 매핑될 데이터베이스 테이블을 지정합니다.
+   - `@Id`: 엔티티의 기본 키(Primary Key)를 지정합니다.
+   - `@GeneratedValue`: 기본 키의 생성 전략을 지정합니다. 예를 들어, `@GeneratedValue(strategy = GenerationType.AUTO)`는 기본 키를 자동으로 생성하도록 설정합니다.
+
+5. **Lombok 애노테이션**:
+   - `@Getter`, `@Setter`: 클래스의 필드에 대해 자동으로 게터/세터 메서드를 생성합니다.
+   - `@ToString`: 클래스에 대한 `toString()` 메서드를 자동으로 생성합니다.
+   - `@EqualsAndHashCode`: `equals()`와 `hashCode()` 메서드를 자동으로 생성합니다.
+   - `@NoArgsConstructor`, `@AllArgsConstructor`: 기본 생성자와 모든 필드를 인자로 받는 생성자를 자동으로 생성합니다.
+
+### 애노테이션의 정의:
+
+사용자 정의 애노테이션을 만들 수도 있습니다. 예를 들어:
+
+```java
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME) // 런타임까지 유지
+@Target(ElementType.METHOD) // 메서드에 적용 가능
+public @interface MyCustomAnnotation {
+    String value();
+    int count() default 1;
+}
+```
+
+이렇게 정의된 애노테이션은 다음과 같이 사용할 수 있습니다:
+
+```java
+public class MyClass {
+
+    @MyCustomAnnotation(value = "Hello", count = 3)
+    public void myMethod() {
+        // ...
+    }
+}
+```
+
+애노테이션은 코드의 가독성을 높이고, 중복을 줄이며, 런타임에서의 유연성을 높이는 데 큰 도움이 됩니다. 특히, 프레임워크나 라이브러리와 함께 사용될 때 그 진가를 발휘합니다.

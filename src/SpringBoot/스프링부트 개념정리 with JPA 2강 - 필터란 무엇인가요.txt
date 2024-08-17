@@ -1,0 +1,22 @@
+https://www.youtube.com/watch?v=mAFLNA9MYg8&list=PL93mKxaRDidG_OIfRQ4nztPQ13y74lCYg&index=2
+
+섬 - 톰켓
+
+스프링 컨테이너
+
+filter - web.xml
+
+스프링 필터 -> 인터셉터(AOP)
+
+컴파일 체킹
+어노테이션 (주석) <-컴파일러 무시x
+글 (주석) <-컴파일러 무시!
+
+스프링 -> 어노테이션 객체 생성
+@Component -> 클래스 메모리에 로딩
+@Autowired -> 로딩된 객체를 해당 변수에 집어 넣어
+
+@Bean
+@Controller
+
+
