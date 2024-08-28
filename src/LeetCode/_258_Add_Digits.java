@@ -37,6 +37,6 @@ class Solution285 {
             num = num / 10;
         }
         //then pass the added sum as input in recursion
-        return addDigits(sum);
+        return addDigits2(sum);
     }
 }

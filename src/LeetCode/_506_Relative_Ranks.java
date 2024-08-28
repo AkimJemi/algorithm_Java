@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class _506_Relative_Ranks {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Solution506().findRelativeRanks(new int[]{10, 3, 8, 9, 4})));
+        System.out.println(Arrays.toString(new Solution506().findRelativeRanks2(new int[]{10, 3, 8, 9, 4})));
     }
 }
 

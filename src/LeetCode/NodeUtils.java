@@ -51,6 +51,16 @@ class ListNode {
 }
 
 class TreeNode {
+
+    public static TreeNode getTreeNodeFromIntegerArray(Integer[] intArray) {
+        TreeNode node = new TreeNode(intArray[intArray.length - 1]);
+//        for (int i = intArray.length - 2; i >= 0; i--) {
+//            node = new TreeNode(intArray[i], node);
+//        }
+        return node;
+    }
+
+
     int val;
     TreeNode left;
     TreeNode right;
