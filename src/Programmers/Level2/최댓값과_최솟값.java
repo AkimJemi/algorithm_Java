@@ -11,10 +11,10 @@ public class 최댓값과_최솟값 {
 class Solution최댓값과_최솟값 {
     public String solution(String s) {
         String[] array = s.split(" ");
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+        int max = Integer.parseInt(array[0]);
+        int min = Integer.parseInt(array[0]);
         for (String str : array) {
-            Integer val = Integer.valueOf(str);
+            int val = Integer.parseInt(str);
             if (val > max) {
                 max = val;
             }
