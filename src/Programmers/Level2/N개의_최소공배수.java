@@ -10,15 +10,12 @@ class SolutionN개의_최소공배수 {
     public int solution(int[] arr) {
         int target = arr[0];
         int i = 0;
-        while (true) {
+        while (i != arr.length) {
             for (i = 0; i < arr.length; i++) {
                 if (target % arr[i] != 0) {
                     target++;
                     break;
                 }
-            }
-            if (i == arr.length) {
-                break;
             }
         }
         return target;
